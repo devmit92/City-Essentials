@@ -38,6 +38,11 @@ class App extends Component {
                             path="/businesses"
                             component={BusinessesPage}
                         />
+                        <ProtectedRoute
+                            exact
+                            path="/home"
+                            component={HomePage}
+                        />
                         {/* If none of the other routes matched, we will show a 404. */}
                         <Route exact path="/home" component={HomePage} />
                         <Route render={() => <h1>404</h1>} />
