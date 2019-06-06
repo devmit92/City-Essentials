@@ -7,7 +7,7 @@ const sessionMiddleware = require('./modules/session-middleware');
 const passport = require('./strategies/user.strategy');
 
 const businessesRouter = require('./routes/businesses.router');
-const userRouter = require('./routes/users.router');
+const userRouter = require('./routes/user.router');
 const communityRouter = require('./routes/community.router');
 
 // Body parser middleware
@@ -24,7 +24,7 @@ app.use(passport.session());
 
 app.use('/api/businesses', businessesRouter);
 app.use('/api/user', userRouter);
-app.use('api/community', communityRouter);
+app.use('/api/community', communityRouter);
 
 app.use(express.static('build'));
 
