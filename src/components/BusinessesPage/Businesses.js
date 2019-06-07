@@ -8,14 +8,24 @@ class BusinessesPage extends Component {
   }
 
   render() {
+
+    const htmlArray = this.props.businesses.map((business, index ) => {
+      return (
+        <div key={index}>
+          <p>{business.business_name}</p>
+          <p>{business.address}</p>
+          <p>{business.city_name}</p>
+          <p>{business.phone_number}</p>
+          <p>{business.hours}</p>
+          <a href={business.website}>{business.website}</a>
+        </div>
+      )
+    });
+
     return (
       <div>
         <ul>
-          {this.props.businesses.map(business=> (
-            <li>
-              {business}
-            </li>
-          ))}
+          {htmlArray}
         </ul>
       </div>
     )

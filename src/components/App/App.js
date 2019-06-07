@@ -14,6 +14,9 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 import BusinessesPage from '../BusinessesPage/Businesses';
 import HomePage from '../HomePage/HomePage';
+import CommunityPage from '../CommunityPage/CommunityPage';
+
+import './App.css';
 
 
 class App extends Component {
@@ -37,6 +40,11 @@ class App extends Component {
                             exact
                             path="/businesses"
                             component={BusinessesPage}
+                        />
+                        <ProtectedRoute
+                            exact
+                            path="/community"
+                            component={CommunityPage}
                         />
                         <ProtectedRoute
                             exact
