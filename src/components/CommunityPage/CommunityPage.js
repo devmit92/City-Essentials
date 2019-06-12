@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 class CommunityPage extends Component {
     state = {
         newPost: '',
+        likes: 0,
     };
 
     componentDidMount() {
@@ -17,15 +18,19 @@ class CommunityPage extends Component {
         })
     }
 
+
     render() {
 
         const htmlArray = this.props.community.map((community, index) => {
+            console.log('Community info', community);
             return (
                 <div key={index}>
                     <p>{community.username}</p>
                     <p>{community.posting_date}</p>
                     <p>{community.posting_time}</p>
                     <p>{community.posting_content}</p>
+                    <p>{community.post_likes}</p>
+                    <button onClick={() => { this.props.dispatch({ type: 'POST_LIKES', payload: community.community_id }) }}>Like!</button>
                 </div>
             )
         });
@@ -43,7 +48,6 @@ class CommunityPage extends Component {
                     onChange={this.handleInputChange}
                 />
                 <button onClick={() => { this.props.dispatch({ type: 'POST_COMMUNITY', payload: this.state.newPost }) }}>Save Post</button>
-                <button>Like!</button>
             </div>
         )
     }

@@ -19,6 +19,22 @@ router.get('/', (req, res) => {
     }
 });
 
+router.get('/:id', (req, res) => {
+    const queryText = `SELECT "post_likes" FROM "community"
+                        JOIN "community_users" ON "community"."id" = "community_users"."community_id"
+                        JOIN "users" ON "community_users"."user_id" = "users"."id"
+                        WHERE "community"."id"=$1;`;
+    if (req.isAuthenticated()) {
+        pool.query(queryText, [req.params.id])
+        .then(results => res.send(results.rows))
+        .catch(error => {
+            console.log('Error making SELECT for post:', error);
+            res.sendStatus(500);
+        });
+    } else {
+        res.sendStatus(403);
+    }
+});
 
 
 router.post('/', (req, res) => {
@@ -45,7 +61,29 @@ router.delete('/:id', (req, res) => {
 
 
 router.put('/:id', (req, res) => {
+    // const queryText = `SELECT "post_likes" FROM "community"
+    //                     JOIN "community_users" ON "community"."id" = "community_users"."community_id"
+    //                     JOIN "users" ON "community_users"."user_id" = "users"."id"
+    //                     WHERE "community"."id"=$1;`;
 
+    console.log('Are things whack?');
+    const queryText = `UPDATE "community"
+                        SET "post_likes" = "post_likes" + 1
+                        WHERE "community"."id"=$1;`;
+
+    if (req.isAuthenticated()) {
+        pool.query(queryText, [req.params.id])
+        .then((results) => {
+            console.log('All good');
+            res.sendStatus(200)
+        })
+        .catch(error => {
+            console.log('Error making SELECT for post:', error);
+            res.sendStatus(500);
+        });
+    } else {
+        res.sendStatus(403);
+    }
 });
 
 
