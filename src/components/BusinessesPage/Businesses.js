@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import BusinessCard from '../BusinessCard/BusinessCard';
 import Grid from '@material-ui/core/Grid';
+import './Businesses.css';
 
 class BusinessesPage extends Component {
 
@@ -20,7 +21,7 @@ class BusinessesPage extends Component {
     });
 
     return (
-      <div>
+      <div class="list-bg-img">
         <Grid alignment="stretch" container spacing={3}>
           {htmlArray}
         </Grid>

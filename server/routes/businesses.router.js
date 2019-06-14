@@ -41,10 +41,11 @@ router.put('/:id', (req, res) => {
 });
 
 router.get('/top-five', (req, res) => {
-    const queryText = `SELECT TOP 5 * FROM "businesses"
+    const queryText = `SELECT * FROM "businesses"
                 JOIN "city_businesses" ON "businesses"."id" = "city_businesses"."businesses_id"
                 JOIN "cities" ON "city_businesses"."city_id" = "cities"."id"
-                WHERE "business_likes" > 0;`;
+                ORDER BY "businesses"."business_likes" DESC
+                LIMIT 5;`;
     if (req.isAuthenticated()) {
         pool.query(queryText)
             .then(results => res.send(results.rows))

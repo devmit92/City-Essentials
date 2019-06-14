@@ -9,7 +9,7 @@ function* fetchBusinesses() {
       withCredentials: true,
     };
     
-    const response = yield axios.get('api/businesses', config);
+    const response = yield axios.get('/api/businesses', config);
     
     yield put({ type: 'SET_BUSINESSES', payload: response.data });
   } catch (error) {
@@ -25,7 +25,7 @@ function* putLikes(action) {
       withCredentials: true,
     };
 
-    const response = yield axios.put('/api/businesses/' + action.payload, config);
+    yield axios.put('/api/businesses/' + action.payload, config);
 
     yield put({ type: 'FETCH_BUSINESSES' });
   } catch (error) {

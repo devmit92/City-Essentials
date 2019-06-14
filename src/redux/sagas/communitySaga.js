@@ -28,7 +28,7 @@ function* postCommunity(action) {
       content: action.payload
     }
 
-    const response = yield axios.post('/api/community', data, config);
+    yield axios.post('/api/community', data, config);
 
     yield put({ type: 'FETCH_COMMUNITY' });
   } catch (error) {
@@ -44,7 +44,7 @@ function* putLikes(action) {
       withCredentials: true,
     };
 
-    const response = yield axios.put('/api/community/' + action.payload, config);
+     yield axios.put('/api/community/' + action.payload, config);
 
     yield put({ type: 'FETCH_COMMUNITY' });
   } catch (error) {
