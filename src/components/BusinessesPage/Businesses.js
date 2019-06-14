@@ -1,32 +1,29 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import BusinessCard from '../BusinessCard/BusinessCard';
+import Grid from '@material-ui/core/Grid';
 
 class BusinessesPage extends Component {
+
   componentDidMount() {
     this.props.dispatch({ type: 'FETCH_BUSINESSES' });
   }
 
   render() {
 
-    const htmlArray = this.props.businesses.map((business, index ) => {
+    const htmlArray = this.props.businesses.map((business, index) => {
       return (
-        <div key={index}>
-          <p>{business.business_name}</p>
-          <p>{business.address}</p>
-          <p>{business.city_name}</p>
-          <p>{business.phone_number}</p>
-          <p>{business.hours}</p>
-          <a href={business.website}>{business.website}</a>
-        </div>
+        <Grid key={index} item xs={4}>
+          <BusinessCard business={business} />
+        </Grid>
       )
     });
 
     return (
       <div>
-        <ul>
+        <Grid alignment="stretch" container spacing={3}>
           {htmlArray}
-        </ul>
+        </Grid>
       </div>
     )
   }

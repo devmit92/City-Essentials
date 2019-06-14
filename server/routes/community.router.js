@@ -61,12 +61,6 @@ router.delete('/:id', (req, res) => {
 
 
 router.put('/:id', (req, res) => {
-    // const queryText = `SELECT "post_likes" FROM "community"
-    //                     JOIN "community_users" ON "community"."id" = "community_users"."community_id"
-    //                     JOIN "users" ON "community_users"."user_id" = "users"."id"
-    //                     WHERE "community"."id"=$1;`;
-
-    console.log('Are things whack?');
     const queryText = `UPDATE "community"
                         SET "post_likes" = "post_likes" + 1
                         WHERE "community"."id"=$1;`;
