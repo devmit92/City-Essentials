@@ -38,7 +38,7 @@ class CommunityPage extends Component {
         console.log('HI!, ', this.props.community);
 
         return (
-            <div>
+            <div class="list-bg-img">
                 <ul>
                     {htmlArray}
                 </ul>

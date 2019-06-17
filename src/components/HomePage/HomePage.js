@@ -31,8 +31,6 @@ class HomePage extends Component {
         <Grid alignment="stretch" container spacing={3}>
           {htmlArray}
         </Grid>
-        <br/>
-        <LogOutButton className="log-in" />
       </div>
     )
   }
