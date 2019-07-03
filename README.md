@@ -3,7 +3,7 @@
 ## Description
 City Essentials is a web/mobile application that looks to solve the problem of getting lost in the shuffle when trying to navigate a new city without missing out on the more local gems. It gives you a way of having a pulse on the city. Using Kansas City as a test market, the app allows users to get a list of the five hot spots based on what others actually using the app in that city think and it gives a complete list of all local gems from food, to fashion, to entertainment and whatever else you're looking for. Also users are able to interact on the community page and see what other users have to say about what's going on in Kansas City.
 
-[https://gentle-lake-85620.herokuapp.com](City Essentials Application)
+[City Essentials Application](https://gentle-lake-85620.herokuapp.com)
 
 ## Set up
 1. Start off by creating a database named `city_essentials`.
