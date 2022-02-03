@@ -1,3 +1,4 @@
+require('newrelic');
 import React, {Component} from 'react';
 import {
   HashRouter as Router,

@@ -1,5 +1,4 @@
 const express = require('express');
-require('newrelic');
 
 const app = express();
 const bodyParser = require('body-parser');
